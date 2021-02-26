@@ -22,43 +22,48 @@ class Postingdetail extends StatelessWidget {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          padding: EdgeInsets.all(5.0),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(50.0),
+                        Row(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(5.0),
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(50.0),
+                                ),
+                                child: Image.network(
+                                    "https://impact-psy.com/desempeno/assets/images/avatars/profile-pic.jpg",
+                                    width: 50.0,
+                                    height: 50.0),
+                              ),
                             ),
-                            child: Image.network(
-                                "https://impact-psy.com/desempeno/assets/images/avatars/profile-pic.jpg",
-                                width: 50.0,
-                                height: 50.0),
-                          ),
-                        ),
-                        Container(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 10.0),
-                                child: Text("Nama Pengguna, .Pd.I",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15.0,
-                                    )),
+                            Container(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 10.0),
+                                    child: Text("Nama Pengguna, .Pd.I",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15.0,
+                                        )),
+                                  ),
+                                  Text(
+                                    "Guru PAI SD N 1 DEMO",
+                                    style: TextStyle(fontSize: 10.0),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "Guru PAI SD N 1 DEMO",
-                                style: TextStyle(fontSize: 10.0),
-                              ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                         Container(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               IconButton(
-                                  onPressed: () {}, icon: Icon(Icons.edit))
+                                  onPressed: () {}, icon: Icon(Icons.more_vert))
                             ],
                           ),
                         )
