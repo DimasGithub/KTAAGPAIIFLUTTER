@@ -6,6 +6,7 @@ import 'package:agpaii_kta/login.dart';
 import 'package:agpaii_kta/fitur.dart';
 import 'package:agpaii_kta/profil.dart';
 import 'package:agpaii_kta/detailposting.dart';
+import 'package:agpaii_kta/posting.dart';
 
 void main() {
   runApp(GetMaterialApp(
@@ -18,6 +19,10 @@ void main() {
           page: () => CreateAccount(),
           transition: Transition.zoom),
       GetPage(name: '/fitur', page: () => Fitur(), transition: Transition.zoom),
+      GetPage(
+          name: '/posting',
+          page: () => Posting(),
+          transition: Transition.fadeIn),
       GetPage(name: '/profil', page: () => Profil()),
       GetPage(name: '/profil/lihatposting', page: () => Postingdetail()),
     ],

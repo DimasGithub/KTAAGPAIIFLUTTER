@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:agpaii_kta/login.dart';
 import 'package:agpaii_kta/profil.dart';
 import 'package:agpaii_kta/fitur.dart';
+import 'package:get/get.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -71,7 +72,7 @@ class _KontenState extends State<Konten> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return new Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
           title: Text('KTA AGPAII', style: TextStyle(color: Colors.black)),
@@ -88,14 +89,46 @@ class _KontenState extends State<Konten> {
             ),
             IconButton(
               onPressed: () {},
-              icon: Icon(Icons.send),
+              icon: Icon(Icons.comment),
               color: Colors.black,
             )
           ],
         ),
-        body: ListView(
-          children: cards,
-        ));
+        body: Column(children: [
+          ButtonPosting(),
+          Expanded(child: ListView(children: cards)),
+        ]));
+  }
+}
+
+class ButtonPosting extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          padding: EdgeInsets.all(5.0),
+          child: Row(children: [
+            ClipRRect(
+              borderRadius: BorderRadius.all(
+                Radius.circular(50.0),
+              ),
+              child: Image.asset("assets/img/masjid.jpg",
+                  width: 50.0, height: 50.0),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('Diskusi hari ini  ? '),
+            ),
+          ]),
+        ),
+        IconButton(
+            icon: Icon(Icons.add_a_photo),
+            onPressed: () => Get.toNamed("/posting")),
+      ],
+    ));
   }
 }
 
@@ -109,11 +142,6 @@ class Kartu extends StatelessWidget {
             children: [
               Container(
                 child: Row(
-                  children: [],
-                ),
-              ),
-              Container(
-                child: Row(
                   children: [
                     Container(
                       padding: EdgeInsets.all(5.0),
@@ -121,10 +149,8 @@ class Kartu extends StatelessWidget {
                         borderRadius: BorderRadius.all(
                           Radius.circular(50.0),
                         ),
-                        child: Image.network(
-                            "https://impact-psy.com/desempeno/assets/images/avatars/profile-pic.jpg",
-                            width: 50.0,
-                            height: 50.0),
+                        child: Image.asset("assets/img/masjid.jpg",
+                            width: 50.0, height: 50.0),
                       ),
                     ),
                     Container(
@@ -160,8 +186,7 @@ class Kartu extends StatelessWidget {
                     ),
                   ),
                   FittedBox(
-                    child: Image.network('https://picsum.photos/250?image=9'),
-                    fit: BoxFit.fill,
+                    child: Image.asset('assets/img/masjid.jpg'),
                   )
                 ],
               )),
@@ -202,7 +227,7 @@ class Kartu extends StatelessWidget {
                                 ),
                                 IconButton(
                                   onPressed: () {},
-                                  icon: Icon(Icons.comment_bank_outlined),
+                                  icon: Icon(Icons.mode_comment_outlined),
                                 ),
                                 IconButton(
                                   onPressed: () {},

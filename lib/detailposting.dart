@@ -63,7 +63,47 @@ class Postingdetail extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
                               IconButton(
-                                  onPressed: () {}, icon: Icon(Icons.more_vert))
+                                  onPressed: () {
+                                    showGeneralDialog(
+                                      barrierLabel: "Label",
+                                      barrierDismissible: true,
+                                      barrierColor:
+                                          Colors.black.withOpacity(0.5),
+                                      transitionDuration:
+                                          Duration(milliseconds: 400),
+                                      context: context,
+                                      pageBuilder: (context, anim1, anim2) {
+                                        return Align(
+                                          alignment: Alignment.bottomCenter,
+                                          child: Container(
+                                            height: 180,
+                                            child: SizedBox.expand(
+                                                child: Dialogku()),
+                                            margin: EdgeInsets.only(
+                                                bottom: 50,
+                                                left: 12,
+                                                right: 12),
+                                            decoration: BoxDecoration(
+                                              color: Colors.white,
+                                              borderRadius:
+                                                  BorderRadius.circular(40),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                      transitionBuilder:
+                                          (context, anim1, anim2, child) {
+                                        return SlideTransition(
+                                          position: Tween(
+                                                  begin: Offset(0, 1),
+                                                  end: Offset(0, 0))
+                                              .animate(anim1),
+                                          child: child,
+                                        );
+                                      },
+                                    );
+                                  },
+                                  icon: Icon(Icons.more_vert))
                             ],
                           ),
                         )
@@ -81,8 +121,7 @@ class Postingdetail extends StatelessWidget {
                         ),
                       ),
                       FittedBox(
-                        child:
-                            Image.network('https://picsum.photos/250?image=9'),
+                        child: Image.asset("assets/img/masjid.png"),
                         fit: BoxFit.fill,
                       )
                     ],
@@ -171,5 +210,44 @@ class Postingdetail extends StatelessWidget {
             ),
           ]),
         ));
+  }
+}
+
+class Dialogku extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        child: Column(
+      children: <Widget>[
+        FlatButton(
+          padding: EdgeInsets.only(top: 30.0),
+          onPressed: () {
+            /*...*/
+          },
+          child: Text(
+            "Edit",
+          ),
+        ),
+        FlatButton(
+          padding: EdgeInsets.only(top: 30.0),
+          onPressed: () {
+            /*...*/
+          },
+          child: Text(
+            "Bagikan",
+          ),
+        ),
+        FlatButton(
+          padding: EdgeInsets.only(top: 30.0),
+          onPressed: () {
+            /*...*/
+          },
+          child: Text(
+            "Hapus",
+            style: TextStyle(color: Colors.red),
+          ),
+        )
+      ],
+    ));
   }
 }
